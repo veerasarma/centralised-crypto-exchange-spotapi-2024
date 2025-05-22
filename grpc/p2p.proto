@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+service Req {
+    rpc fetchSpotPrice (fetchSpotPriceReq) returns (fetchSpotPriceRes) {}
+}
+
+message fetchSpotPriceReq {
+    string id = 1;
+}
+message pairArray {
+    string tikerRoot = 1;
+    float markPrice = 2;
+}
+
+message fetchSpotPriceRes {
+   repeated pairArray result = 1;
+}
+
+
+message Empty {}

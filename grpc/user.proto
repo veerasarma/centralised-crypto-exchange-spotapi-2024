@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+service Req {
+    rpc fetchUser (fetchUserReq) returns (fetchUserRes) {}
+    rpc fetchBotUser (fetchBotUserReq) returns (fetchBotUserRes) {}
+    rpc botUser (botUserReq) returns (botUserRes) {}
+    rpc fetchReferralUser (fetchReferralUserReq) returns (fetchReferralUserRes) {}
+    rpc updateReferralAmount (updateReferralAmountReq) returns (updateReferralAmountRes) {}
+    rpc insertReferralRewaedHistory (insertReferralRewaedHistoryReq) returns (insertReferralRewaedHistoryRes) {}
+
+}
+
+message fetchUserReq {
+    string id = 1;
+}
+message fetchBotUserReq {
+    string id = 1;
+}
+message fetchBotUserRes {
+    string firstName = 1;
+    string lastName = 2;
+    string email = 3;
+    string _id = 4;
+    string userId = 5;
+}
+message botUserReq {
+   string firstName = 1;
+   string lastName = 2;
+   string email = 3;
+   string type = 4;
+}
+
+message botUserRes {
+    bool status = 1;
+}
+
+message fetchUserRes {
+    string _id = 1;
+    string userCode = 2;
+}
+
+message fetchReferralUserReq {
+    string _id = 1;
+}
+
+message fetchReferralUserRes {
+    string refertalTableId = 1;
+    string percentage = 2;
+    string currencyId = 3;
+    bool status = 4;
+    string userId = 5;
+    string currencySymbol = 6;
+
+}
+message updateReferralAmountReq {
+    string _id = 1;
+    string ust_value = 2;
+    string amount = 3;
+    string currency = 4;
+    string rewardCurrency=5;
+}
+
+message updateReferralAmountRes {
+    string status = 1;
+}
+
+
+message insertReferralRewaedHistoryReq {
+    string refertalTableId = 1;
+    string userId = 2;
+    string refer_child = 3;
+    string tradeId = 4;
+    string amount=5;
+    string rewardCurrency=6;
+}
+
+message insertReferralRewaedHistoryRes {
+    string status = 1;
+}
+
+
+message Empty {}

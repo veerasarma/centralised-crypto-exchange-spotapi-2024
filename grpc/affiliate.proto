@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+service Req{
+    rpc getParentData (parentDataReq) returns (parentDataRes) {}
+    rpc createStakerHistoryGRPC (createStakerHistoryReq) returns (createStakerHistoryRes) {}
+}
+
+message parentDataReq {
+    string userId = 1;
+}
+
+message parentDataRes{
+    bool status = 1;
+    string data = 2;
+}
+
+message createStakerHistoryReq {
+    string data = 1;
+    string rewardPrice = 2;
+    string historyType = 3;
+    string childId = 4;
+    string curName = 5;
+    string contributor = 6;
+    string rewardCoinId = 7;
+}
+
+message createStakerHistoryRes {}
+
+message Empty {}
