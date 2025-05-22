@@ -1,4 +1,4 @@
-# B5 Crypto Exchange SpotAPI 2024
+# Centralised Crypto Exchange SpotAPI 2024
 
 
 
